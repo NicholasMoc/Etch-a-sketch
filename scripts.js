@@ -45,7 +45,6 @@ function createGrid() {
 function clear() {
     let squares = document.querySelectorAll('.square');
     squares.forEach((sq) => {
-        sq.classList.remove('shadesquare');
         sq.style.backgroundColor = 'white';
     });
 }
@@ -55,7 +54,6 @@ function enableSquares()
     let squares = document.querySelectorAll('.square');
     squares.forEach((sq) => {
         sq.addEventListener('mouseover', () => {
-            console.log("shade");
             sq.style.backgroundColor = "#353333";
         });
     });
@@ -90,7 +88,6 @@ function randomColors()
     let squares = document.querySelectorAll('.square');
     squares.forEach((sq) => {
         sq.addEventListener('mouseover', () => {
-            console.log("color");
             let randomColor = Math.floor(Math.random()*16777215).toString(16);
             sq.style.backgroundColor = "#" + randomColor;
         });
