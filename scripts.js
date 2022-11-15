@@ -1,8 +1,8 @@
 const container = document.querySelector('.container');
 
-let rainbow = ['rock', 'paper', 'scissors'];
-
 let rainEnable = false;
+
+let border = false;
 
 let rainbowButton = document.querySelector('.rainbowPen');
 
@@ -11,6 +11,8 @@ let resizeButton = document.querySelector('.resize');
 let clearButton = document.querySelector('.clear');
 createGrid();
 let squares = document.querySelectorAll('.square');
+
+let borderButton = document.querySelector('.border');
 
 /*Functions*/
 function makeRows(rowNum) {
@@ -67,6 +69,21 @@ function removeRows()
     }
 }
 
+function enableBorders()
+{
+    let squares = document.querySelectorAll('.square');
+    squares.forEach((sq) => {
+            sq.style.border = "1px solid lightgray";
+    });
+}
+
+function disableBorders()
+{
+    let squares = document.querySelectorAll('.square');
+    squares.forEach((sq) => {
+            sq.style.border = "1px solid white";
+    });
+}
 
 function randomColors()
 {
@@ -79,6 +96,8 @@ function randomColors()
         });
     });
 }
+
+
 
 rainbowButton.addEventListener('click', () => {
     if(rainEnable == false){
@@ -121,3 +140,15 @@ clearButton.addEventListener('click', () =>
 {
     clear();
 });
+
+borderButton.addEventListener('click', ()=> {
+    if(border == false)
+    {
+        border = true;
+        enableBorders();
+    }
+    else{
+        border = false;
+        disableBorders();
+    }
+})
